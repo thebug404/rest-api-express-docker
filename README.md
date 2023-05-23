@@ -1,4 +1,4 @@
-# Introduction to Docker
+# Introduction to Docker 🐳
 
 During the development of this practical guide, we will create an application for user registration using Node.js + MySQL.
 
