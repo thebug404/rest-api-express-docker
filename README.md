@@ -61,7 +61,7 @@ npm i express mysql2 morgan
 Next, install the [DevDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file).
 
 ```bash
-npm i @types/node @types/express typescript ts-node -D
+npm i @types/node @types/express @types/morgan typescript ts-node -D
 ```
 
 Create a file `src/index.ts` and add the following content.
