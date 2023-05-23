@@ -41,7 +41,7 @@ npm init -y
 In our case, we will be using [TypeScript](https://www.typescriptlang.org/) for our project, so it's necessary to generate an additional file called `tsconfig.json`
 
 ```bash
-tsc --init --target next
+tsc --init --target esnext
 ```
 
 At this point, your directory should look like this:
