@@ -1,49 +1,49 @@
-## Introduccion a Docker
+# Introduction to Docker
 
-Durante la elaboración de la guía práctica, crearemos una aplicación para registrar usuarios, la cual será desarrollada en Node.js + MySQL.
+During the development of this practical guide, we will create an application for user registration using Node.js + MySQL.
 
-El desarrollo se llevará a cabo desde el principio hasta el final, y durante esta etapa se abordarán los conceptos clave de Docker. Todo esto se realiza con el propósito de hacer que la guía sea más amena y que los conceptos se asimilen de manera práctica.
+The development will be carried out from start to finish, and during this stage, we will cover the key concepts of Docker. All of this is done with the purpose of making the guide more engaging and ensuring that the concepts are assimilated in a practical way.
 
-A continuación se muestran los temas a abordar:
+The following topics will be covered:
 
-- Requisitos.
-- Configuración del proyecto.
+- Requirements.
+- Project setup.
 
-## Requisitos.
+## Requirements.
 
 - [Node.js + NPM](https://nodejs.org/)
 - [Docker](https://www.docker.com/)
-- [VSCode](https://code.visualstudio.com/) (o tu editor de preferencia)
+- [VSCode](https://code.visualstudio.com/) (or your preferred editor)
 
-## Configuración del proyecto.
+## Project setup.
 
-Creamos una carpeta con el nombre que queremos asignar a nuestro proyecto, en mi caso le pondre `rest-api-express-docker`
+Create a folder with the desired name for your project. In my case, I will name it `rest-api-express-docker`.
 
 ```bash
 mkdir rest-api-express-docker
 ```
 
-Ingresamos al directorio.
+Navigate into the directory.
 
 ```bash
 cd rest-api-express-docker
 ```
 
-Ahora es momento de inicializar nuestro proyecto. Para inicializar un proyecto en Node.js tenemos que crear un archivo llamado `package.json`
+Now it's time to initialize our project. To initialize a Node.js project, we need to create a file called `package.json`.
 
-> **Note**: Si necesitas mas informacion con respecto al `package.json` puedes visitar el siguiente enlace [What is package.json?](https://docs.npmjs.com/cli/v9/configuring-npm/package-json)
+> **Note**: If you need more information about `package.json` you can visit the following link: [What is package.json?](https://docs.npmjs.com/cli/v9/configuring-npm/package-json)
 
 ```bash
 npm init -y
 ```
 
-En nuestro caso estaremos usando Typescript para nuestro proyecto es necesario generar un archivo adicional llamado `tsconfig.json`
+In our case, we will be using [TypeScript](https://www.typescriptlang.org/) for our project, so it's necessary to generate an additional file called `tsconfig.json`
 
 ```bash
 tsc --init --target next
 ```
 
-Llegados a este punto su directorio deberia de lucir de esta forma:
+At this point, your directory should look like this:
 
 ```
 📦rest-api-express-docker
@@ -51,25 +51,25 @@ Llegados a este punto su directorio deberia de lucir de esta forma:
  ┗ 📜tsconfig.json
 ```
 
-Ahora es momento de instalar las dependencias del proyecto.
+Now it's time to install the project dependencies.
 
 ```bash
 npm i express mysql2 morgan
 ```
 
-Ahora instalamos las DevDependencies.
+Next, install the [DevDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file).
 
 ```bash
 npm i @types/node @types/express typescript ts-node -D
 ```
 
-Ahora creamos un archivo `src/index.ts` y agreamos el siguiente contenido.
+Create a file `src/index.ts` and add the following content.
 
 ```ts
 console.log('Hello world!')
 ```
 
-Ahora ingresamos al archivo `package.json` y agregamos los siguientes `scripts`.
+Open the `package.json` file and add the following `scripts`.
 
 ```json
 {
@@ -83,7 +83,7 @@ Ahora ingresamos al archivo `package.json` y agregamos los siguientes `scripts`.
 }
 ```
 
-Agregamos el siguiente contenido al `tsconfig.json`
+Add the following content to `tsconfig.json`
 
 ```bash
 {
@@ -93,7 +93,7 @@ Agregamos el siguiente contenido al `tsconfig.json`
 }
 ```
 
-Para comprobar que todo este configurado correctamente ejecutamos los siguientes comandos.
+To verify that everything is set up correctly, execute the following commands.
 
 ```bash
 npm run start:ts
@@ -103,4 +103,4 @@ npm run build
 npm start
 ```
 
-Llegados a este punto, hemos finalizado con la configuracion inicial de tu proyecto.
+At this point, we have completed the initial configuration of your project.
