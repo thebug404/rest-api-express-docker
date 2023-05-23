@@ -8,6 +8,7 @@ The following topics will be covered:
 
 - Requirements.
 - Project setup.
+- Interacting with MySQL 🐬
 
 ## Requirements.
 
@@ -104,3 +105,95 @@ npm start
 ```
 
 At this point, we have completed the initial configuration of your project.
+
+## Interacting with MySQL 🐬
+
+In order to have a MySQL container running on my computer, it is necessary to download said image. To download images we execute the following command:
+
+```bash
+docker pull mysql
+```
+
+You can enter the following link https://hub.docker.com/_/mysql to get more information about the image.
+
+Now that we have our MySQL image downloaded, it's time to run our container. To do this, run the following command:
+
+```bash
+docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=my-secret-pw -d -p 3306:3306 mysql:tag
+```
+
+- `--name`: Assign a name to the container.
+- `-e`: We set an environment variable.
+- `-d`: Runs the database server in the background.
+- `-p`: Enable a port so we can connect to the MySQL server.
+
+### Ingresando al contenedor.
+
+To enter the container we do it using the following command.
+
+```bash
+docker exec -it mysql_container bash
+```
+
+Well, we are already inside the container. Now, to connect to the database we enter the following command:
+
+```bash
+mysql -u root -p
+```
+
+Enter the password, and you're done. We can now create Databases, tables, enter records, etc.
+
+### Definicion de Esquemas.
+
+We create a Database.
+
+```sql
+CREATE DATABASE example_db;
+```
+
+We select the DB with which we want to work.
+
+```sql
+USE example_db;
+```
+
+We create the user table.
+
+```sql
+CREATE TABLE Users (
+	id INT,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	email VARCHAR(50),
+	gender VARCHAR(50),
+	age INT
+);
+```
+
+Insert records into the `Users` table.
+
+```sql
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (1, 'Georgeta', 'Eldredge', 'geldredge0@xrea.com', 'Female', 73);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (2, 'Gothart', 'Iltchev', 'giltchev1@google.pl', 'Male', 77);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (3, 'Max', 'enzley', 'menzley2@ustream.tv', 'Female', 35);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (4, 'Eugen', 'Brownsill', 'ebrownsill3@jimdo.com', 'Male', 28);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (5, 'Andria', 'Daal', 'adaal4@sciencedirect.com', 'Female', 74);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (6, 'Hollyanne', 'Dolling', 'hdolling5@google.it', 'Female', 89);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (7, 'Chickie', 'Shipton', 'cshipton6@xing.com', 'Female', 89);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (8, 'Chick', 'Beedon', 'cbeedon7@comcast.net', 'Male', 80);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (9, 'Carmelia', 'Beasley', 'cbeasley8@newsvine.com', 'Female', 18);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (10, 'Kelcey', 'Devas', 'kdevas9@yandex.ru', 'Non-binary', 24);
+```
+
+We perform some operations to view the records in the table, view the existing tables, and view the structure of the `Users` table.
+
+```sql
+/* View all users */
+SELECT * FROM USERS;
+
+/* View all Table */
+SHOW TABLES;
+
+/* See the structure of the table. */
+DESCRIBE Users;
+```
