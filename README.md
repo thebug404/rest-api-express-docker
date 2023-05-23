@@ -55,7 +55,7 @@ At this point, your directory should look like this:
 Now it's time to install the project dependencies.
 
 ```bash
-npm i express mysql2 morgan
+npm i express mysql2 morgan dotenv
 ```
 
 Next, install the [DevDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file).
