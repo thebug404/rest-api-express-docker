@@ -14,6 +14,8 @@ export class UserController {
   }
 
   async post (req: Request, res: Response): Promise<void> {
-    res.json({ message: 'POST /users' })
+    const data = await this.repository.create(req.body)
+
+    res.json(data)
   }
 }
