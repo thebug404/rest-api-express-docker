@@ -106,7 +106,7 @@ npm start
 
 At this point, we have completed the initial configuration of your project.
 
-## Interacting with MySQL 🐬
+## MySQL Image 🐬
 
 In order to have a MySQL container running on my computer, it is necessary to download said image. To download images we execute the following command:
 
@@ -119,7 +119,7 @@ You can enter the following link https://hub.docker.com/_/mysql to get more info
 Now that we have our MySQL image downloaded, it's time to run our container. To do this, run the following command:
 
 ```bash
-docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=my-secret-pw -d -p 3306:3306 mysql:tag
+docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=mysqlpw -d -p 3306:3306 mysql
 ```
 
 - `--name`: Assign a name to the container.
@@ -127,7 +127,7 @@ docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=my-secret-pw -d -p 3306
 - `-d`: Runs the database server in the background.
 - `-p`: Enable a port so we can connect to the MySQL server.
 
-### Ingresando al contenedor.
+### Interacting with the container
 
 To enter the container we do it using the following command.
 
@@ -143,7 +143,7 @@ mysql -u root -p
 
 Enter the password, and you're done. We can now create Databases, tables, enter records, etc.
 
-### Definicion de Esquemas.
+### Definition of Schemes
 
 We create a Database.
 
@@ -161,12 +161,12 @@ We create the user table.
 
 ```sql
 CREATE TABLE Users (
-	id INT,
-	first_name VARCHAR(50),
-	last_name VARCHAR(50),
-	email VARCHAR(50),
-	gender VARCHAR(50),
-	age INT
+  id INT,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  email VARCHAR(50),
+  gender VARCHAR(50),
+  age INT
 );
 ```
 
@@ -196,4 +196,129 @@ SHOW TABLES;
 
 /* See the structure of the table. */
 DESCRIBE Users;
+```
+
+## Creando una imagen en Docker
+
+Image building is fairly easy in Docker, just define a `Dockerfile` and specify the instructions to build the image.
+
+To create an image in Docker it is necessary to add a `Dockerfile` file in the root of our project and paste the following content.
+
+```Dockerfile
+# set the base image
+FROM node:18
+
+# Set the working directory to the image
+WORKDIR /usr/src/app
+
+# Copy the file package.json and package-lock.json (if it exists)
+COPY package*.json ./
+
+# Install the project dependencies
+RUN npm install
+
+# Copy the rest of the project files
+COPY . .
+
+# Compile TypeScript to JavaScript
+RUN npm run build
+
+# Expose the port the server is running on
+EXPOSE 8080
+
+# Set the container startup command
+CMD ["npm", "start"]
+```
+
+Ok, now it's time to create our image.
+
+```bash
+docker build -t rest-api-express-docker .
+```
+
+- `-t`: Add a label to our image.
+
+> **Note**: This action can take several minutes.
+
+Now if we execute the following command, we can see that our image is already in our Docker image list.
+
+```bash
+docker images
+```
+
+To create a container in docker we do it as follows.
+
+```bash
+docker run --name container_express_docker -d -p 8080:8080 \
+-e PORT=8080 \
+-e MYSQL_HOST=localhost \
+-e MYSQL_PORT=3306 \
+-e MYSQL_USER=root \
+-e MYSQL_PASSWORD=mysqlpw \
+-e MYSQL_DATABASE=example_db \
+rest-api-express-docker
+```
+
+When you try to access the path http://localhost:8080/api/users in your application, it may cause an error or an execution interruption. This occurs because the container hosting your application is unaware of the MySQL container host, which prevents a successful connection between them from being established.
+
+To solve this problem, you can use the concept of networks in Docker.
+
+## Connecting containers
+
+A [network in Docker](https://docs.docker.com/network/) is an isolated environment that enables communication between containers. By putting both containers on the same network, they will be able to interact with each other.
+
+By connecting the containers to the same network, the application container will be able to communicate with the MySQL container using the container name or service name (if you are using Docker Compose) instead of using localhost or IP addresses.
+
+This will allow the application to successfully access the MySQL container over the network, solving the connection problem.
+
+Create a Docker network:
+
+```bash
+docker network create mynetwork
+```
+
+Remove all created containers.
+
+```bash
+docker rm -f $(docker ps -aq)
+```
+
+Run the MySQL container connected to the created network:
+
+```bash
+docker run --name mysql_container --network mynetwork -e MYSQL_ROOT_PASSWORD=mysqlpw -d -p 3306:3306 mysql
+```
+
+> **Note**: You need to go into the `mysql_container` container and create the database, tables and insert the data again.
+
+Run the Express server container connected to the same network:
+
+```bash
+docker run --name container_express_docker \
+--network mynetwork \
+-d \
+-p 8080:8080 \
+-e PORT=8080 \
+-e MYSQL_HOST=mysql_container \
+-e MYSQL_PORT=3306 \
+-e MYSQL_USER=root \
+-e MYSQL_PASSWORD=mysqlpw \
+-e MYSQL_DATABASE=example_db \
+rest-api-express-docker
+```
+
+In this example, we have created a custom network called `mynetwork` using the `docker network create` command. Then, when running the containers, we use the `--network` option to connect them to the `mynetwork` network. Also, we have set `MYSQL_HOST=container_mysql` on the Express server container so that it connects to the MySQL container using the container name as the host.
+
+## Highlights
+
+Elimina todos los contenedores.
+
+```bash
+docker rm -f $(docker ps -aq)
+```
+
+Detener todos los contenedores.
+
+```bash
+docker stop $(docker ps -aq)
 ```
