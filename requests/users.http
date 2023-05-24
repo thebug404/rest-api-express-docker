@@ -1,0 +1,15 @@
+### Get all users
+GET http://localhost:8080/api/users HTTP/1.1
+
+### Create a user
+POST http://localhost:8080/api/users HTTP/1.1
+content-type: application/json
+
+{
+  "id": 12,
+  "first_name": "Eugenie",
+  "last_name": "Jeary",
+  "email": "ejeary1@themeforest.net",
+  "gender": "Female",
+  "age": 59
+}
