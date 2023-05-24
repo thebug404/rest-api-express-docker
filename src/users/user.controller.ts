@@ -1,12 +1,16 @@
 import { Request, Response } from 'express'
 
-import { pool } from '../config/mysql'
+import { ServiceMethods } from '../declarations'
+
+import { User } from './user.repository'
 
 export class UserController {
-  async get (req: Request, res: Response): Promise<void> {
-    const [results] = await pool.query('SELECT * FROM Users')
+  constructor (private repository: ServiceMethods<User>) {}
 
-    res.json({ items: results })
+  async get (req: Request, res: Response): Promise<void> {
+    const items = await this.repository.list()
+
+    res.json({ items })
   }
 
   async post (req: Request, res: Response): Promise<void> {
