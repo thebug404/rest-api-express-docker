@@ -309,16 +309,87 @@ rest-api-express-docker
 
 In this example, we have created a custom network called `mynetwork` using the `docker network create` command. Then, when running the containers, we use the `--network` option to connect them to the `mynetwork` network. Also, we have set `MYSQL_HOST=container_mysql` on the Express server container so that it connects to the MySQL container using the container name as the host.
 
+As you can see, the process of configuring to be able to connect both containers is quite a tedious process, since we have to execute several commands to make this possible. That is why Docker offers us a way to optimize this whole process through `Docker Compose`.
+
+## Configuring Docker Compose
+
+[Docker Compose](https://docs.docker.com/compose/) is a tool that allows you to define and manage multiple Docker containers as a single service application. It provides a way to describe the configuration of services, networks, and volumes needed to run a multi-container application.
+
+Docker Compose is based on a YAML file called `docker-compose.yml`, in which you can define **services**, **network configurations**, **volumes** and other options for your containers. This simplifies the task of running applications that require multiple interconnected services, such as web applications that depend on a database and other auxiliary services.
+
+Create a `docker-compose.yml` file in the root of the project and add the following content.
+
+```yml
+version: '3'
+services:
+  # First service: Node.js server.
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - MYSQL_HOST=db
+      - MYSQL_PORT=3306
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=mysqlpw
+      - MYSQL_DATABASE=example_db
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+  # Second service: MySQL server.
+  db:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlpw
+    volumes:
+      - ./data:/var/lib/mysql
+    networks:
+      - mynetwork
+# Define a network.
+networks:
+  mynetwork:
+```
+
+With this file we have optimized all the steps to create, run and interconnect both containers.
+
+To execute this process we do it as follows.
+
+```bash
+docker compose up -d
+```
+
+> **Note**: It is necessary to create the database, tables and the insertion of records.
+
+And that's it, with these steps we already have everything configured.
+
 ## Highlights
 
-Elimina todos los contenedores.
+Delete all containers.
 
 ```bash
 docker rm -f $(docker ps -aq)
 ```
 
-Detener todos los contenedores.
+Stop all containers.
 
 ```bash
 docker stop $(docker ps -aq)
+```
+
+Remove all images.
+
+```bash
+docker rmi $(docker images -a -q)
+```
+
+Interact with a service made with Docker compose.
+
+```bash
+docker-compose exec service_name bash
 ```
