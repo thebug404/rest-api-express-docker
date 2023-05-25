@@ -4,107 +4,68 @@ During the development of this practical guide, we will create an application fo
 
 The development will be carried out from start to finish, and during this stage, we will cover the key concepts of Docker. All of this is done with the purpose of making the guide more engaging and ensuring that the concepts are assimilated in a practical way.
 
-The following topics will be covered:
+## Table of Contents
 
-- Requirements.
-- Project setup.
-- Interacting with MySQL 🐬
+- [Introduction to Docker 🐳](#introduction-to-docker-)
+  - [Table of Contents](#table-of-contents)
+  - [Requirements](#requirements)
+  - [Project setup](#project-setup)
+  - [MySQL Image 🐬](#mysql-image-)
+    - [Interacting with the container](#interacting-with-the-container)
+    - [Definition of Schemes](#definition-of-schemes)
+  - [Creating image in Docker](#creating-image-in-docker)
+  - [Creating a container](#creating-a-container)
+  - [Connecting containers](#connecting-containers)
+  - [Configuring Docker Compose](#configuring-docker-compose)
+  - [Useful commands](#useful-commands)
 
-## Requirements.
+## Requirements
 
 - [Node.js + NPM](https://nodejs.org/)
+- [Git](https://git-scm.com/)
 - [Docker](https://www.docker.com/)
 - [VSCode](https://code.visualstudio.com/) (or your preferred editor)
 
-## Project setup.
+## Project setup
 
-Create a folder with the desired name for your project. In my case, I will name it `rest-api-express-docker`.
+Clone project.
 
 ```bash
-mkdir rest-api-express-docker
+git clone https://github.com/thebug404/rest-api-express-docker.git
 ```
 
-Navigate into the directory.
+Enter project.
 
 ```bash
 cd rest-api-express-docker
 ```
 
-Now it's time to initialize our project. To initialize a Node.js project, we need to create a file called `package.json`.
-
-> **Note**: If you need more information about `package.json` you can visit the following link: [What is package.json?](https://docs.npmjs.com/cli/v9/configuring-npm/package-json)
+Install dependencies.
 
 ```bash
-npm init -y
+npm install
 ```
 
-In our case, we will be using [TypeScript](https://www.typescriptlang.org/) for our project, so it's necessary to generate an additional file called `tsconfig.json`
+Open **VSCode**.
 
 ```bash
-tsc --init --target esnext
+code .
 ```
 
-At this point, your directory should look like this:
+We initialize all containers using Docker Compose.
 
-```
-📦rest-api-express-docker
- ┣ 📜package.json
- ┗ 📜tsconfig.json
-```
-
-Now it's time to install the project dependencies.
+> **Note**: If you want to quickly test the project I can run the command `docker compose up -d`. But if you are new to Docker, you can skip this part. Since it will be seen later.
 
 ```bash
-npm i express mysql2 morgan dotenv
+docker compose up -d
 ```
 
-Next, install the [DevDependencies](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file).
+Now, you have available the following http methods to interact with the Users API.
 
-```bash
-npm i @types/node @types/express @types/morgan typescript ts-node -D
-```
+- `GET` http://localhost:8080/api/users
+- `POST` http://localhost:8080/api/users
 
-Create a file `src/index.ts` and add the following content.
-
-```ts
-console.log('Hello world!')
-```
-
-Open the `package.json` file and add the following `scripts`.
-
-```json
-{
-  // ...
-  "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "start:ts": "ts-node src/index.ts"
-  }
-  // ...
-}
-```
-
-Add the following content to `tsconfig.json`
-
-```bash
-{
-  "compilerOptions": {
-    "outDir": "./dist"
-  }
-}
-```
-
-To verify that everything is set up correctly, execute the following commands.
-
-```bash
-npm run start:ts
-
-npm run build
-
-npm start
-```
-
-At this point, we have completed the initial configuration of your project.
+> Enter the file `requests\users.http`, where all the available requests are preconfigured.
 
 ## MySQL Image 🐬
 
@@ -198,9 +159,11 @@ SHOW TABLES;
 DESCRIBE Users;
 ```
 
-## Creando una imagen en Docker
+## Creating image in Docker
 
-Image building is fairly easy in Docker, just define a `Dockerfile` and specify the instructions to build the image.
+In Docker, an [image] is a lightweight, self-contained package that contains everything needed to run an application, including code, system dependencies, libraries, environment variables, and configurations. A Docker image is created from a file called `Dockerfile`, which specifies step-by-step instructions for building the image.
+
+Docker images are portable and can run on any supported Docker host, making it easy to consistently deploy and distribute applications across different environments. In addition, Docker images can be shared and stored on [Docker Hub](https://hub.docker.com/), allowing developers to quickly and easily share and download images.
 
 To create an image in Docker it is necessary to add a `Dockerfile` file in the root of our project and paste the following content.
 
@@ -245,6 +208,14 @@ Now if we execute the following command, we can see that our image is already in
 ```bash
 docker images
 ```
+
+Done, so far we have already created our first Image in Docker. Now is the time to get it running. Every time you are becoming more crack!
+
+## Creating a container
+
+A [container](https://docs.docker.com/get-started/#what-is-a-container) is a runtime instance of a Docker image. You can think of a container as a lightweight, isolated environment that runs an application along with all of its dependencies, using operating system resources in an efficient manner.
+
+One of the fundamental characteristics of Docker is that they are portable and consistent, which means that you can create a container in one environment and then run it in another without worrying about configuration differences or dependencies. This is because Docker containers encapsulate all necessary dependencies and configurations within the Docker image, ensuring that the application runs the same in any supported Docker environment.
 
 To create a container in docker we do it as follows.
 
@@ -397,7 +368,7 @@ docker compose up -d
 
 And that's it, with these steps we already have everything configured.
 
-## Highlights
+## Useful commands
 
 Delete all containers.
 
