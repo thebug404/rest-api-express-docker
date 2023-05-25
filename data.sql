@@ -1,0 +1,113 @@
+CREATE DATABASE example_db;
+
+USE example_db;
+
+create table Users (
+	id INT,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	email VARCHAR(50),
+	gender VARCHAR(50),
+	age INT
+);
+
+insert into Users (id, first_name, last_name, email, gender, age) values (1, 'Madison', 'Spight', 'mspight0@stanford.edu', 'Male', 57);
+insert into Users (id, first_name, last_name, email, gender, age) values (2, 'Yoshiko', 'Bussy', 'ybussy1@weibo.com', 'Female', 27);
+insert into Users (id, first_name, last_name, email, gender, age) values (3, 'Brandy', 'Philson', 'bphilson2@ihg.com', 'Male', 69);
+insert into Users (id, first_name, last_name, email, gender, age) values (4, 'Jaquenette', 'Bohlens', 'jbohlens3@yelp.com', 'Female', 59);
+insert into Users (id, first_name, last_name, email, gender, age) values (5, 'Gray', 'Lewcock', 'glewcock4@moonfruit.com', 'Male', 81);
+insert into Users (id, first_name, last_name, email, gender, age) values (6, 'Peterus', 'Devall', 'pdevall5@ehow.com', 'Male', 23);
+insert into Users (id, first_name, last_name, email, gender, age) values (7, 'Farly', 'Bolsteridge', 'fbolsteridge6@opera.com', 'Male', 73);
+insert into Users (id, first_name, last_name, email, gender, age) values (8, 'Zonda', 'Aucott', 'zaucott7@columbia.edu', 'Female', 99);
+insert into Users (id, first_name, last_name, email, gender, age) values (9, 'Waylon', 'Oxbury', 'woxbury8@forbes.com', 'Male', 50);
+insert into Users (id, first_name, last_name, email, gender, age) values (10, 'Faunie', 'Moreing', 'fmoreing9@google.it', 'Female', 80);
+insert into Users (id, first_name, last_name, email, gender, age) values (11, 'Imogene', 'Collip', 'icollipa@cdc.gov', 'Female', 90);
+insert into Users (id, first_name, last_name, email, gender, age) values (12, 'Morena', 'Beviss', 'mbevissb@who.int', 'Female', 77);
+insert into Users (id, first_name, last_name, email, gender, age) values (13, 'Lucilia', 'Perigeaux', 'lperigeauxc@japanpost.jp', 'Female', 79);
+insert into Users (id, first_name, last_name, email, gender, age) values (14, 'Matelda', 'Meindl', 'mmeindld@youtube.com', 'Bigender', 92);
+insert into Users (id, first_name, last_name, email, gender, age) values (15, 'Faustine', 'Mayte', 'fmaytee@netscape.com', 'Female', 56);
+insert into Users (id, first_name, last_name, email, gender, age) values (16, 'Carmelle', 'Korneev', 'ckorneevf@opensource.org', 'Female', 82);
+insert into Users (id, first_name, last_name, email, gender, age) values (17, 'Arny', 'Lightman', 'alightmang@paginegialle.it', 'Agender', 50);
+insert into Users (id, first_name, last_name, email, gender, age) values (18, 'Hewe', 'Mapes', 'hmapesh@home.pl', 'Male', 85);
+insert into Users (id, first_name, last_name, email, gender, age) values (19, 'Merci', 'Kollasch', 'mkollaschi@newsvine.com', 'Female', 95);
+insert into Users (id, first_name, last_name, email, gender, age) values (20, 'Chris', 'Hedin', 'chedinj@privacy.gov.au', 'Female', 57);
+insert into Users (id, first_name, last_name, email, gender, age) values (21, 'Karon', 'Walles', 'kwallesk@nydailynews.com', 'Female', 36);
+insert into Users (id, first_name, last_name, email, gender, age) values (22, 'Maria', 'Yuryaev', 'myuryaevl@fastcompany.com', 'Female', 49);
+insert into Users (id, first_name, last_name, email, gender, age) values (23, 'Christoph', 'Carass', 'ccarassm@gizmodo.com', 'Male', 68);
+insert into Users (id, first_name, last_name, email, gender, age) values (24, 'Margot', 'Jager', 'mjagern@e-recht24.de', 'Female', 74);
+insert into Users (id, first_name, last_name, email, gender, age) values (25, 'Katuscha', 'Tye', 'ktyeo@narod.ru', 'Female', 36);
+insert into Users (id, first_name, last_name, email, gender, age) values (26, 'Garald', 'Absolem', 'gabsolemp@live.com', 'Male', 96);
+insert into Users (id, first_name, last_name, email, gender, age) values (27, 'Twila', 'Woodburn', 'twoodburnq@sina.com.cn', 'Female', 60);
+insert into Users (id, first_name, last_name, email, gender, age) values (28, 'Raynard', 'Cleal', 'rclealr@sfgate.com', 'Male', 61);
+insert into Users (id, first_name, last_name, email, gender, age) values (29, 'Abba', 'Schulter', 'aschulters@chicagotribune.com', 'Male', 28);
+insert into Users (id, first_name, last_name, email, gender, age) values (30, 'Hy', 'Berrill', 'hberrillt@home.pl', 'Male', 44);
+insert into Users (id, first_name, last_name, email, gender, age) values (31, 'Layney', 'Attoc', 'lattocu@geocities.jp', 'Female', 40);
+insert into Users (id, first_name, last_name, email, gender, age) values (32, 'Lonnie', 'MacKeague', 'lmackeaguev@spiegel.de', 'Male', 54);
+insert into Users (id, first_name, last_name, email, gender, age) values (33, 'Brucie', 'Ealden', 'bealdenw@bloglines.com', 'Male', 45);
+insert into Users (id, first_name, last_name, email, gender, age) values (34, 'Giffy', 'Taveriner', 'gtaverinerx@multiply.com', 'Male', 41);
+insert into Users (id, first_name, last_name, email, gender, age) values (35, 'Rem', 'Curreen', 'rcurreeny@upenn.edu', 'Male', 38);
+insert into Users (id, first_name, last_name, email, gender, age) values (36, 'Reamonn', 'Manhare', 'rmanharez@ucoz.ru', 'Male', 20);
+insert into Users (id, first_name, last_name, email, gender, age) values (37, 'Andre', 'Romeril', 'aromeril10@elpais.com', 'Male', 83);
+insert into Users (id, first_name, last_name, email, gender, age) values (38, 'Byrom', 'Oldershaw', 'boldershaw11@sohu.com', 'Male', 77);
+insert into Users (id, first_name, last_name, email, gender, age) values (39, 'Bourke', 'Marston', 'bmarston12@mlb.com', 'Male', 35);
+insert into Users (id, first_name, last_name, email, gender, age) values (40, 'Otha', 'Crenshaw', 'ocrenshaw13@artisteer.com', 'Female', 37);
+insert into Users (id, first_name, last_name, email, gender, age) values (41, 'Marty', 'Shwenn', 'mshwenn14@ifeng.com', 'Agender', 28);
+insert into Users (id, first_name, last_name, email, gender, age) values (42, 'Virge', 'Carmont', 'vcarmont15@answers.com', 'Male', 51);
+insert into Users (id, first_name, last_name, email, gender, age) values (43, 'Tirrell', 'Giovannardi', 'tgiovannardi16@reverbnation.com', 'Male', 99);
+insert into Users (id, first_name, last_name, email, gender, age) values (44, 'Ranique', 'Mearing', 'rmearing17@ed.gov', 'Female', 67);
+insert into Users (id, first_name, last_name, email, gender, age) values (45, 'Janet', 'Exelby', 'jexelby18@bizjournals.com', 'Female', 28);
+insert into Users (id, first_name, last_name, email, gender, age) values (46, 'Inna', 'Braiden', 'ibraiden19@mozilla.org', 'Female', 69);
+insert into Users (id, first_name, last_name, email, gender, age) values (47, 'Naomi', 'Beal', 'nbeal1a@seattletimes.com', 'Female', 52);
+insert into Users (id, first_name, last_name, email, gender, age) values (48, 'Alvie', 'Domengue', 'adomengue1b@vk.com', 'Male', 66);
+insert into Users (id, first_name, last_name, email, gender, age) values (49, 'Ferguson', 'Steers', 'fsteers1c@dion.ne.jp', 'Male', 44);
+insert into Users (id, first_name, last_name, email, gender, age) values (50, 'Ranique', 'Ellin', 'rellin1d@epa.gov', 'Female', 29);
+insert into Users (id, first_name, last_name, email, gender, age) values (51, 'Millisent', 'Egre', 'megre1e@addtoany.com', 'Female', 63);
+insert into Users (id, first_name, last_name, email, gender, age) values (52, 'Griffith', 'Probat', 'gprobat1f@bbc.co.uk', 'Male', 47);
+insert into Users (id, first_name, last_name, email, gender, age) values (53, 'Rickie', 'Dane', 'rdane1g@paypal.com', 'Genderfluid', 21);
+insert into Users (id, first_name, last_name, email, gender, age) values (54, 'Jermain', 'Smardon', 'jsmardon1h@newyorker.com', 'Male', 60);
+insert into Users (id, first_name, last_name, email, gender, age) values (55, 'Dixie', 'Groucock', 'dgroucock1i@imgur.com', 'Female', 65);
+insert into Users (id, first_name, last_name, email, gender, age) values (56, 'Fran', 'Wontner', 'fwontner1j@xing.com', 'Male', 66);
+insert into Users (id, first_name, last_name, email, gender, age) values (57, 'Delcine', 'Medforth', 'dmedforth1k@weather.com', 'Female', 66);
+insert into Users (id, first_name, last_name, email, gender, age) values (58, 'Carleen', 'Weddup', 'cweddup1l@un.org', 'Female', 89);
+insert into Users (id, first_name, last_name, email, gender, age) values (59, 'Chase', 'Harvett', 'charvett1m@usda.gov', 'Male', 53);
+insert into Users (id, first_name, last_name, email, gender, age) values (60, 'Arlina', 'Smout', 'asmout1n@com.com', 'Female', 89);
+insert into Users (id, first_name, last_name, email, gender, age) values (61, 'Barri', 'Banasiak', 'bbanasiak1o@homestead.com', 'Male', 75);
+insert into Users (id, first_name, last_name, email, gender, age) values (62, 'Kenyon', 'Radnage', 'kradnage1p@reuters.com', 'Agender', 76);
+insert into Users (id, first_name, last_name, email, gender, age) values (63, 'Brett', 'Eyres', 'beyres1q@angelfire.com', 'Female', 77);
+insert into Users (id, first_name, last_name, email, gender, age) values (64, 'Tod', 'Shackesby', 'tshackesby1r@ebay.co.uk', 'Male', 97);
+insert into Users (id, first_name, last_name, email, gender, age) values (65, 'Muire', 'Ganter', 'mganter1s@parallels.com', 'Female', 83);
+insert into Users (id, first_name, last_name, email, gender, age) values (66, 'Eulalie', 'Driver', 'edriver1t@mac.com', 'Female', 43);
+insert into Users (id, first_name, last_name, email, gender, age) values (67, 'Phedra', 'Paybody', 'ppaybody1u@yolasite.com', 'Female', 24);
+insert into Users (id, first_name, last_name, email, gender, age) values (68, 'Audy', 'Mardell', 'amardell1v@skyrock.com', 'Female', 60);
+insert into Users (id, first_name, last_name, email, gender, age) values (69, 'Salim', 'Monson', 'smonson1w@weather.com', 'Male', 69);
+insert into Users (id, first_name, last_name, email, gender, age) values (70, 'Warde', 'McDavitt', 'wmcdavitt1x@surveymonkey.com', 'Male', 91);
+insert into Users (id, first_name, last_name, email, gender, age) values (71, 'Shelagh', 'McMahon', 'smcmahon1y@nba.com', 'Non-binary', 20);
+insert into Users (id, first_name, last_name, email, gender, age) values (72, 'Orlan', 'Pele', 'opele1z@disqus.com', 'Male', 61);
+insert into Users (id, first_name, last_name, email, gender, age) values (73, 'Lauretta', 'Gartside', 'lgartside20@chron.com', 'Female', 52);
+insert into Users (id, first_name, last_name, email, gender, age) values (74, 'Hale', 'Kearle', 'hkearle21@amazon.co.jp', 'Male', 34);
+insert into Users (id, first_name, last_name, email, gender, age) values (75, 'Emma', 'O''Towey', 'eotowey22@state.gov', 'Female', 42);
+insert into Users (id, first_name, last_name, email, gender, age) values (76, 'Tirrell', 'Coviello', 'tcoviello23@irs.gov', 'Male', 97);
+insert into Users (id, first_name, last_name, email, gender, age) values (77, 'Spense', 'Squibbs', 'ssquibbs24@unc.edu', 'Male', 87);
+insert into Users (id, first_name, last_name, email, gender, age) values (78, 'Anny', 'McCook', 'amccook25@1688.com', 'Female', 88);
+insert into Users (id, first_name, last_name, email, gender, age) values (79, 'Toby', 'Loveless', 'tloveless26@mashable.com', 'Female', 74);
+insert into Users (id, first_name, last_name, email, gender, age) values (80, 'Keefer', 'Martugin', 'kmartugin27@slashdot.org', 'Genderqueer', 95);
+insert into Users (id, first_name, last_name, email, gender, age) values (81, 'Benny', 'Danahar', 'bdanahar28@china.com.cn', 'Male', 84);
+insert into Users (id, first_name, last_name, email, gender, age) values (82, 'Bertie', 'Beekman', 'bbeekman29@netlog.com', 'Female', 36);
+insert into Users (id, first_name, last_name, email, gender, age) values (83, 'Amii', 'Searl', 'asearl2a@jigsy.com', 'Female', 22);
+insert into Users (id, first_name, last_name, email, gender, age) values (84, 'Wain', 'Danniell', 'wdanniell2b@4shared.com', 'Male', 42);
+insert into Users (id, first_name, last_name, email, gender, age) values (85, 'Galina', 'Carah', 'gcarah2c@acquirethisname.com', 'Female', 19);
+insert into Users (id, first_name, last_name, email, gender, age) values (86, 'Karole', 'Cason', 'kcason2d@google.com', 'Polygender', 84);
+insert into Users (id, first_name, last_name, email, gender, age) values (87, 'Mace', 'Novello', 'mnovello2e@bizjournals.com', 'Male', 81);
+insert into Users (id, first_name, last_name, email, gender, age) values (88, 'Hinda', 'Meehan', 'hmeehan2f@cisco.com', 'Polygender', 27);
+insert into Users (id, first_name, last_name, email, gender, age) values (89, 'Valencia', 'Stathor', 'vstathor2g@plala.or.jp', 'Genderqueer', 96);
+insert into Users (id, first_name, last_name, email, gender, age) values (90, 'Freddie', 'Cubbino', 'fcubbino2h@census.gov', 'Female', 57);
+insert into Users (id, first_name, last_name, email, gender, age) values (91, 'Coralyn', 'Cocke', 'ccocke2i@hp.com', 'Female', 73);
+insert into Users (id, first_name, last_name, email, gender, age) values (92, 'Rozelle', 'Ormes', 'rormes2j@independent.co.uk', 'Polygender', 54);
+insert into Users (id, first_name, last_name, email, gender, age) values (93, 'Cirillo', 'Brayley', 'cbrayley2k@apache.org', 'Male', 90);
+insert into Users (id, first_name, last_name, email, gender, age) values (94, 'Junia', 'Robbeke', 'jrobbeke2l@reddit.com', 'Female', 57);
+insert into Users (id, first_name, last_name, email, gender, age) values (95, 'Jessica', 'Dilger', 'jdilger2m@spiegel.de', 'Female', 61);
+insert into Users (id, first_name, last_name, email, gender, age) values (96, 'Chariot', 'Babbidge', 'cbabbidge2n@virginia.edu', 'Bigender', 39);
+insert into Users (id, first_name, last_name, email, gender, age) values (97, 'Natka', 'Colton', 'ncolton2o@newyorker.com', 'Female', 79);
+insert into Users (id, first_name, last_name, email, gender, age) values (98, 'Easter', 'Larmett', 'elarmett2p@lulu.com', 'Polygender', 64);
+insert into Users (id, first_name, last_name, email, gender, age) values (99, 'Jean', 'Ondrasek', 'jondrasek2q@adobe.com', 'Female', 53);
+insert into Users (id, first_name, last_name, email, gender, age) values (100, 'Melodee', 'Retallack', 'mretallack2r@wix.com', 'Female', 27);

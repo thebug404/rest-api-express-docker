@@ -317,6 +317,34 @@ As you can see, the process of configuring to be able to connect both containers
 
 Docker Compose is based on a YAML file called `docker-compose.yml`, in which you can define **services**, **network configurations**, **volumes** and other options for your containers. This simplifies the task of running applications that require multiple interconnected services, such as web applications that depend on a database and other auxiliary services.
 
+Create a `data.sql`
+
+```sql
+CREATE DATABASE example_db;
+
+USE example_db;
+
+create table Users (
+	id INT,
+	first_name VARCHAR(50),
+	last_name VARCHAR(50),
+	email VARCHAR(50),
+	gender VARCHAR(50),
+	age INT
+);
+
+insert into Users (id, first_name, last_name, email, gender, age) values (1, 'Madison', 'Spight', 'mspight0@stanford.edu', 'Male', 57);
+insert into Users (id, first_name, last_name, email, gender, age) values (2, 'Yoshiko', 'Bussy', 'ybussy1@weibo.com', 'Female', 27);
+insert into Users (id, first_name, last_name, email, gender, age) values (3, 'Brandy', 'Philson', 'bphilson2@ihg.com', 'Male', 69);
+insert into Users (id, first_name, last_name, email, gender, age) values (4, 'Jaquenette', 'Bohlens', 'jbohlens3@yelp.com', 'Female', 59);
+insert into Users (id, first_name, last_name, email, gender, age) values (5, 'Gray', 'Lewcock', 'glewcock4@moonfruit.com', 'Male', 81);
+insert into Users (id, first_name, last_name, email, gender, age) values (6, 'Peterus', 'Devall', 'pdevall5@ehow.com', 'Male', 23);
+insert into Users (id, first_name, last_name, email, gender, age) values (7, 'Farly', 'Bolsteridge', 'fbolsteridge6@opera.com', 'Male', 73);
+insert into Users (id, first_name, last_name, email, gender, age) values (8, 'Zonda', 'Aucott', 'zaucott7@columbia.edu', 'Female', 99);
+insert into Users (id, first_name, last_name, email, gender, age) values (9, 'Waylon', 'Oxbury', 'woxbury8@forbes.com', 'Male', 50);
+insert into Users (id, first_name, last_name, email, gender, age) values (10, 'Faunie', 'Moreing', 'fmoreing9@google.it', 'Female', 80);
+```
+
 Create a `docker-compose.yml` file in the root of the project and add the following content.
 
 ```yml
@@ -349,12 +377,15 @@ services:
       MYSQL_ROOT_PASSWORD: mysqlpw
     volumes:
       - ./data:/var/lib/mysql
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
     networks:
       - mynetwork
 # Define a network.
 networks:
   mynetwork:
 ```
+
+- `./data.sql:/docker-entrypoint-initdb.d/data.sql`: The line `./data.sql:/docker-entrypoint-initdb.d/data.sql` mounts the `./data.sql` file from your host system to the `/docker-entrypoint-initdb.d` directory inside the container, which allows you to provide a database initialization script to be executed when the container starts.
 
 With this file we have optimized all the steps to create, run and interconnect both containers.
 
@@ -363,8 +394,6 @@ To execute this process we do it as follows.
 ```bash
 docker compose up -d
 ```
-
-> **Note**: It is necessary to create the database, tables and the insertion of records.
 
 And that's it, with these steps we already have everything configured.
 
@@ -391,5 +420,17 @@ docker rmi $(docker images -a -q)
 Interact with a service made with Docker compose.
 
 ```bash
-docker-compose exec service_name bash
+docker compose exec service_name bash
+```
+
+Stop the services defined in your `docker-compose.yml` file without removing the containers.
+
+```bash
+docker compose stop
+```
+
+Stops and removes the services defined in your `docker-compose.yml` file, including associated **containers**, **volumes**, and **networks**.
+
+```bash
+docker compose down
 ```
