@@ -1,6 +1,8 @@
-import { pool } from '../config/mysql'
+import { v4 as uuid } from 'uuid'
 
 import { Query, ServiceMethods } from '../declarations'
+
+import { pool } from '../config/mysql'
 
 export interface User {
   id: number;
@@ -20,13 +22,14 @@ export class UserRepository implements ServiceMethods<User> {
 
   async create (data: User, query?: Query | undefined): Promise<User> {
     const {
-      id,
       first_name,
       last_name,
       email,
       gender,
       age
     } = data
+
+    const id = uuid()
 
     const querySQL = 'INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (?, ?, ?, ?, ?, ?)'
 
