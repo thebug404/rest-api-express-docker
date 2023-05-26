@@ -122,7 +122,7 @@ We create the user table.
 
 ```sql
 CREATE TABLE Users (
-  id INT,
+  id VARCHAR(36) PRIMARY KEY,
   first_name VARCHAR(50),
   last_name VARCHAR(50),
   email VARCHAR(50),
@@ -134,16 +134,16 @@ CREATE TABLE Users (
 Insert records into the `Users` table.
 
 ```sql
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (1, 'Georgeta', 'Eldredge', 'geldredge0@xrea.com', 'Female', 73);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (2, 'Gothart', 'Iltchev', 'giltchev1@google.pl', 'Male', 77);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (3, 'Max', 'enzley', 'menzley2@ustream.tv', 'Female', 35);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (4, 'Eugen', 'Brownsill', 'ebrownsill3@jimdo.com', 'Male', 28);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (5, 'Andria', 'Daal', 'adaal4@sciencedirect.com', 'Female', 74);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (6, 'Hollyanne', 'Dolling', 'hdolling5@google.it', 'Female', 89);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (7, 'Chickie', 'Shipton', 'cshipton6@xing.com', 'Female', 89);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (8, 'Chick', 'Beedon', 'cbeedon7@comcast.net', 'Male', 80);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (9, 'Carmelia', 'Beasley', 'cbeasley8@newsvine.com', 'Female', 18);
-INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (10, 'Kelcey', 'Devas', 'kdevas9@yandex.ru', 'Non-binary', 24);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('894cdd48-d76c-42da-a0c9-9b18f127de76', 'Huntlee', 'Barrows', 'hbarrows0@google.com.au', 'Male', 75);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('c3cf3141-f9ea-48b7-9f8e-bea5ee3e031e', 'Kile', 'Alvey', 'kalvey1@ameblo.jp', 'Male', 27);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('d461e2c9-75b8-4ee1-9887-c3423a35347d', 'Elfie', 'Dericot', 'edericot2@vistaprint.com', 'Bigender', 60);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('c26d1f64-8b06-4283-bbbc-94359b643050', 'Tamra', 'Matteucci', 'tmatteucci3@diigo.com', 'Female', 92);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('89683ac1-f7d1-462d-b94c-4096b89ac712', 'Kelli', 'Ekkel', 'kekkel4@columbia.edu', 'Female', 44);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('3765077a-c1c3-4df8-8730-0968aede4505', 'Caresse', 'Chiswell', 'cchiswell5@ebay.co.uk', 'Female', 66);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('e4642b95-a17a-4d84-934b-7e92cd124318', 'Joyous', 'Tunnicliffe', 'jtunnicliffe6@amazonaws.com', 'Agender', 81);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('c90bf72d-e15c-4744-9bc3-a3c728ea81f1', 'Walton', 'Paskin', 'wpaskin7@foxnews.com', 'Male', 74);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('430d6298-0938-4ee6-9dd8-598176a1cf6d', 'Suzy', 'Thurborn', 'sthurborn8@huffingtonpost.com', 'Female', 91);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('1fee7ec1-9947-4f13-adbe-0f02787329e7', 'Alia', 'O''Drought', 'aodrought9@accuweather.com', 'Female', 45);
 ```
 
 We perform some operations to view the records in the table, view the existing tables, and view the structure of the `Users` table.
@@ -295,25 +295,25 @@ CREATE DATABASE example_db;
 
 USE example_db;
 
-create table Users (
-	id INT,
-	first_name VARCHAR(50),
-	last_name VARCHAR(50),
-	email VARCHAR(50),
-	gender VARCHAR(50),
-	age INT
+CREATE TABLE Users (
+  id VARCHAR(36) PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  email VARCHAR(50),
+  gender VARCHAR(50),
+  age INT
 );
 
-insert into Users (id, first_name, last_name, email, gender, age) values (1, 'Madison', 'Spight', 'mspight0@stanford.edu', 'Male', 57);
-insert into Users (id, first_name, last_name, email, gender, age) values (2, 'Yoshiko', 'Bussy', 'ybussy1@weibo.com', 'Female', 27);
-insert into Users (id, first_name, last_name, email, gender, age) values (3, 'Brandy', 'Philson', 'bphilson2@ihg.com', 'Male', 69);
-insert into Users (id, first_name, last_name, email, gender, age) values (4, 'Jaquenette', 'Bohlens', 'jbohlens3@yelp.com', 'Female', 59);
-insert into Users (id, first_name, last_name, email, gender, age) values (5, 'Gray', 'Lewcock', 'glewcock4@moonfruit.com', 'Male', 81);
-insert into Users (id, first_name, last_name, email, gender, age) values (6, 'Peterus', 'Devall', 'pdevall5@ehow.com', 'Male', 23);
-insert into Users (id, first_name, last_name, email, gender, age) values (7, 'Farly', 'Bolsteridge', 'fbolsteridge6@opera.com', 'Male', 73);
-insert into Users (id, first_name, last_name, email, gender, age) values (8, 'Zonda', 'Aucott', 'zaucott7@columbia.edu', 'Female', 99);
-insert into Users (id, first_name, last_name, email, gender, age) values (9, 'Waylon', 'Oxbury', 'woxbury8@forbes.com', 'Male', 50);
-insert into Users (id, first_name, last_name, email, gender, age) values (10, 'Faunie', 'Moreing', 'fmoreing9@google.it', 'Female', 80);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('894cdd48-d76c-42da-a0c9-9b18f127de76', 'Huntlee', 'Barrows', 'hbarrows0@google.com.au', 'Male', 75);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('c3cf3141-f9ea-48b7-9f8e-bea5ee3e031e', 'Kile', 'Alvey', 'kalvey1@ameblo.jp', 'Male', 27);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('d461e2c9-75b8-4ee1-9887-c3423a35347d', 'Elfie', 'Dericot', 'edericot2@vistaprint.com', 'Bigender', 60);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('c26d1f64-8b06-4283-bbbc-94359b643050', 'Tamra', 'Matteucci', 'tmatteucci3@diigo.com', 'Female', 92);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('89683ac1-f7d1-462d-b94c-4096b89ac712', 'Kelli', 'Ekkel', 'kekkel4@columbia.edu', 'Female', 44);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('3765077a-c1c3-4df8-8730-0968aede4505', 'Caresse', 'Chiswell', 'cchiswell5@ebay.co.uk', 'Female', 66);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('e4642b95-a17a-4d84-934b-7e92cd124318', 'Joyous', 'Tunnicliffe', 'jtunnicliffe6@amazonaws.com', 'Agender', 81);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('c90bf72d-e15c-4744-9bc3-a3c728ea81f1', 'Walton', 'Paskin', 'wpaskin7@foxnews.com', 'Male', 74);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('430d6298-0938-4ee6-9dd8-598176a1cf6d', 'Suzy', 'Thurborn', 'sthurborn8@huffingtonpost.com', 'Female', 91);
+INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES ('1fee7ec1-9947-4f13-adbe-0f02787329e7', 'Alia', 'O''Drought', 'aodrought9@accuweather.com', 'Female', 45);
 ```
 
 Create a `docker-compose.yml` file in the root of the project and add the following content.

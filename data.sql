@@ -3,12 +3,12 @@ CREATE DATABASE example_db;
 USE example_db;
 
 create table Users (
-	id VARCHAR(36) PRIMARY KEY,
-	first_name VARCHAR(50),
-	last_name VARCHAR(50),
-	email VARCHAR(50),
-	gender VARCHAR(50),
-	age INT
+  id VARCHAR(36) PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  email VARCHAR(50),
+  gender VARCHAR(50),
+  age INT
 );
 
 insert into Users (id, first_name, last_name, email, gender, age) values ('894cdd48-d76c-42da-a0c9-9b18f127de76', 'Huntlee', 'Barrows', 'hbarrows0@google.com.au', 'Male', 75);
