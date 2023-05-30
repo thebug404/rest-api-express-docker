@@ -1,32 +1,32 @@
 # Introduction to Docker 🐳
 
-During the development of this practical guide, we will create an application for user registration using Node.js + MySQL.
+During the development of this practical guide, we will create an application for user registration using `Node.js` + `MySQL`.
 
-The development will be carried out from start to finish, and during this stage, we will cover the key concepts of Docker. All of this is done with the purpose of making the guide more engaging and ensuring that the concepts are assimilated in a practical way.
+The development will be carried out from start to finish, and during this stage, we will cover the key concepts of **Docker**. All of this is done with the purpose of making the guide more engaging and ensuring that the concepts are assimilated in a practical way.
 
 ## Table of Contents
 
 - [Introduction to Docker 🐳](#introduction-to-docker-)
   - [Table of Contents](#table-of-contents)
-  - [Requirements](#requirements)
-  - [Project setup](#project-setup)
+  - [Requirements 📋](#requirements-)
+  - [Project setup ⚙️](#project-setup-️)
   - [MySQL Image 🐬](#mysql-image-)
     - [Interacting with the container](#interacting-with-the-container)
     - [Definition of Schemes](#definition-of-schemes)
-  - [Creating image in Docker](#creating-image-in-docker)
-  - [Creating a container](#creating-a-container)
-  - [Connecting containers](#connecting-containers)
-  - [Configuring Docker Compose](#configuring-docker-compose)
-  - [Commands used](#commands-used)
+  - [Creating image in Docker 🖼️](#creating-image-in-docker-️)
+  - [Creating a container 📦](#creating-a-container-)
+  - [Connecting containers 📡](#connecting-containers-)
+  - [Configuring Docker Compose 🚀](#configuring-docker-compose-)
+  - [Commands used ⌨️](#commands-used-️)
 
-## Requirements
+## Requirements 📋
 
 - [Node.js + NPM](https://nodejs.org/)
 - [Git](https://git-scm.com/)
 - [Docker](https://www.docker.com/)
 - [VSCode](https://code.visualstudio.com/) (or your preferred editor)
 
-## Project setup
+## Project setup ⚙️
 
 Clone project.
 
@@ -159,7 +159,7 @@ SHOW TABLES;
 DESCRIBE Users;
 ```
 
-## Creating image in Docker
+## Creating image in Docker 🖼️
 
 In Docker, an [image] is a lightweight, self-contained package that contains everything needed to run an application, including code, system dependencies, libraries, environment variables, and configurations. A Docker image is created from a file called `Dockerfile`, which specifies step-by-step instructions for building the image.
 
@@ -211,7 +211,7 @@ docker images
 
 Done, so far we have already created our first Image in Docker. Now is the time to get it running. Every time you are becoming more crack!
 
-## Creating a container
+## Creating a container 📦
 
 A [container](https://docs.docker.com/get-started/#what-is-a-container) is a runtime instance of a Docker image. You can think of a container as a lightweight, isolated environment that runs an application along with all of its dependencies, using operating system resources in an efficient manner.
 
@@ -234,7 +234,7 @@ When you try to access the path http://localhost:8080/api/users in your applicat
 
 To solve this problem, you can use the concept of networks in Docker.
 
-## Connecting containers
+## Connecting containers 📡
 
 A [network in Docker](https://docs.docker.com/network/) is an isolated environment that enables communication between containers. By putting both containers on the same network, they will be able to interact with each other.
 
@@ -282,7 +282,7 @@ In this example, we have created a custom network called `mynetwork` using the `
 
 As you can see, the process of configuring to be able to connect both containers is quite a tedious process, since we have to execute several commands to make this possible. That is why Docker offers us a way to optimize this whole process through `Docker Compose`.
 
-## Configuring Docker Compose
+## Configuring Docker Compose 🚀
 
 [Docker Compose](https://docs.docker.com/compose/) is a tool that allows you to define and manage multiple Docker containers as a single service application. It provides a way to describe the configuration of services, networks, and volumes needed to run a multi-container application.
 
@@ -368,7 +368,7 @@ docker compose up -d
 
 And that's it, with these steps we already have everything configured.
 
-## Commands used
+## Commands used ⌨️
 
 Download a third-party image.
 
