@@ -12,3 +12,6 @@ content-type: application/json
   "gender": "Female",
   "age": 59
 }
+
+### Remove a user
+DELETE  http://localhost:8080/api/users/<userId> HTTP/1.1

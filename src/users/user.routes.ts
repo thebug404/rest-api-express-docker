@@ -21,4 +21,6 @@ router.post(
   controller.post.bind(controller)
 )
 
+router.delete(`${BASE_URL}/:userId`, controller.delete.bind(controller))
+
 export default router
