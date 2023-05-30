@@ -8,6 +8,7 @@ The development will be carried out from start to finish, and during this stage,
 
 - [Introduction to Docker 🐳](#introduction-to-docker-)
   - [Table of Contents](#table-of-contents)
+  - [What is Docker? 🐳](#what-is-docker-)
   - [Requirements 📋](#requirements-)
   - [Project setup ⚙️](#project-setup-️)
   - [MySQL Image 🐬](#mysql-image-)
@@ -18,6 +19,10 @@ The development will be carried out from start to finish, and during this stage,
   - [Connecting containers 📡](#connecting-containers-)
   - [Configuring Docker Compose 🚀](#configuring-docker-compose-)
   - [Commands used ⌨️](#commands-used-️)
+
+## What is Docker? 🐳
+
+[Docker](https://docs.docker.com/get-started/overview/) allows developers to package their applications along with all of their dependencies in a container, ensuring that the application runs the same in any environment. This facilitates the portability and scalability of applications, since containers can run on any system that has Docker installed, regardless of its operating system or specific configuration.
 
 ## Requirements 📋
 
@@ -161,14 +166,14 @@ DESCRIBE Users;
 
 ## Creating image in Docker 🖼️
 
-In Docker, an [image] is a lightweight, self-contained package that contains everything needed to run an application, including code, system dependencies, libraries, environment variables, and configurations. A Docker image is created from a file called `Dockerfile`, which specifies step-by-step instructions for building the image.
+In Docker, an [image](https://docs.docker.com/get-started/#what-is-a-container-image) is a lightweight, self-contained package that contains everything needed to run an application, including code, system dependencies, libraries, environment variables, and configurations. A Docker image is created from a file called `Dockerfile`, which specifies step-by-step instructions for building the image.
 
 Docker images are portable and can run on any supported Docker host, making it easy to consistently deploy and distribute applications across different environments. In addition, Docker images can be shared and stored on [Docker Hub](https://hub.docker.com/), allowing developers to quickly and easily share and download images.
 
 To create an image in Docker it is necessary to add a `Dockerfile` file in the root of our project and paste the following content.
 
 ```Dockerfile
-# set the base image
+# Set the base image
 FROM node:18
 
 # Set the working directory to the image
@@ -216,6 +221,10 @@ Done, so far we have already created our first Image in Docker. Now is the time 
 A [container](https://docs.docker.com/get-started/#what-is-a-container) is a runtime instance of a Docker image. You can think of a container as a lightweight, isolated environment that runs an application along with all of its dependencies, using operating system resources in an efficient manner.
 
 One of the fundamental characteristics of Docker is that they are portable and consistent, which means that you can create a container in one environment and then run it in another without worrying about configuration differences or dependencies. This is because Docker containers encapsulate all necessary dependencies and configurations within the Docker image, ensuring that the application runs the same in any supported Docker environment.
+
+![image_containers_docker](https://github.com/thebug404/rest-api-express-docker/assets/64434514/a59620e4-6265-471a-847b-739dd655bcd5)
+
+> **TIP**: See images as `Classes` and containers as `Objects` or `Instances` of the class.
 
 To create a container in docker we do it as follows.
 
