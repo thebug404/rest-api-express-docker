@@ -17,7 +17,7 @@ The development will be carried out from start to finish, and during this stage,
   - [Creating a container](#creating-a-container)
   - [Connecting containers](#connecting-containers)
   - [Configuring Docker Compose](#configuring-docker-compose)
-  - [Useful commands](#useful-commands)
+  - [Commands used](#commands-used)
 
 ## Requirements
 
@@ -368,7 +368,67 @@ docker compose up -d
 
 And that's it, with these steps we already have everything configured.
 
-## Useful commands
+## Commands used
+
+Download a third-party image.
+
+```bash
+docker pull <image_name>
+```
+
+Shows a table of downloaded images.
+
+```bash
+docker images
+```
+
+Shows the containers.
+
+```bash
+# In running
+docker ps
+
+# Running and detained
+docker ps -a
+```
+
+Build a docker image.
+
+```bash
+docker build -t <name_container> .
+```
+
+Create a docker container.
+
+```bash
+docker run <addtional_options> <image_name>
+```
+
+> **TIP**: The last parameter must be the name of the image, otherwise you will get an error.
+
+> **TIP**: To find out what parameters to pass when creating a container, visit the official repository image. For example, the official [MySQL](https://hub.docker.com/_/mysql) repo.
+
+Enter a container.
+
+```bash
+docker exec -it <container_name> <terminal>
+
+# Using bash
+docker exec -it container_mysql bash
+
+# Using sh
+docker exec -it container_mysql sh
+```
+
+> **TIP**: `<terminal>` it can be `bash`, `sh` or others.
+
+Create a docker network.
+
+```bash
+docker network create <network_name>
+```
+
+> **NOTE**: By default, the network created is of the bridge type. If you want to know other types of networks visit [Networking Overview](https://docs.docker.com/network/)
 
 Delete all containers.
 
