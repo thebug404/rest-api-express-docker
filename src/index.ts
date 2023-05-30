@@ -14,6 +14,9 @@ app.use(morgan('tiny'))
 // Define routes.
 app.use('/api', userRoutes)
 
+// Enable statuc files.
+app.use(express.static('public'))
+
 app.listen(environments.PORT, () => {
   console.log(`Server executing in port:${environments.PORT}`)
 })
