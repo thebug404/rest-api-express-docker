@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { Request, Response } from 'express'
 
 import { ServiceMethods } from '../declarations'
@@ -7,6 +8,7 @@ import { UserNotFound } from '../errors'
 import { User } from './user.repository'
 
 export class UserController {
+  // eslint-disable-next-line no-useless-constructor
   constructor (private repository: ServiceMethods<User>) {}
 
   async get (req: Request, res: Response): Promise<void> {
@@ -24,13 +26,13 @@ export class UserController {
   async patch (req: Request, res: Response): Promise<void> {
     try {
       const { first_name, last_name, email, gender, age } = req.body
-  
+
       const { userId } = req.params
-  
+
       const user = await this.repository.get(userId)
-  
+
       if (!user) throw new UserNotFound('The user you want to update does not exist.')
-  
+
       const payload = {
         first_name: first_name ?? user.first_name,
         last_name: last_name ?? user.last_name,
@@ -38,9 +40,9 @@ export class UserController {
         gender: gender ?? user.gender,
         age: age ?? user.age
       } as User
-  
+
       const data = await this.repository.patch(userId, payload)
-  
+
       res.json(data)
     } catch (error: any) {
       res.status(error?.statusCode || 500).json(error)
@@ -50,13 +52,13 @@ export class UserController {
   async delete (req: Request, res: Response): Promise<void> {
     try {
       const { userId } = req.params || {}
-  
+
       const user = await this.repository.get(userId)
-  
+
       if (!user) throw new UserNotFound('The user you want to delete does not exist.')
-  
+
       const data = await this.repository.remove(userId)
-  
+
       res.json(data)
     } catch (error: any) {
       res.status(error?.statusCode || 500).json(error)

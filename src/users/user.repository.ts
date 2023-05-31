@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { v4 as uuid } from 'uuid'
 
 import { Id, Query, ServiceMethods } from '../declarations'
@@ -15,7 +16,7 @@ export interface User {
 
 export class UserRepository implements ServiceMethods<User> {
   async list (query: Query = {}): Promise<User[]> {
-    const [results] = await pool.query('SELECT * FROM Users;');
+    const [results] = await pool.query('SELECT * FROM Users;')
 
     return results as User[]
   }
