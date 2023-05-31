@@ -3,7 +3,11 @@ import morgan from 'morgan'
 
 import { environments } from './environments'
 
+import { notFound } from './middlewares/notfound.middleware'
+
 import userRoutes from './users/user.routes'
+
+const { PORT } = environments
 
 const app = express()
 
@@ -18,16 +22,10 @@ app.use('/api', userRoutes)
 app.use(express.static('public'))
 
 // Show 404 error messages.
-app.use((req, res) => {
-  const message = 'Resource not found.'
+app.use(notFound)
 
-  const name = 'NotFound'
+app.listen(PORT, () => {
+  const url = `http://localhost:${PORT}`
 
-  const statusCode = 404
-
-  res.status(statusCode).json({ name, message })
-})
-
-app.listen(environments.PORT, () => {
-  console.log(`Server executing in port:${environments.PORT}`)
+  console.log(`Server executing in ${url}`)
 })
