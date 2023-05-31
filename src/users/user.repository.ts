@@ -47,6 +47,12 @@ export class UserRepository implements ServiceMethods<User> {
     return this.get(userId) as Promise<User>
   }
 
+  async update (id: Id, data: User, query?: Query | undefined): Promise<User> {
+    await pool.query('UPDATE Users SET ? WHERE id = ?', [data, id])
+
+    return this.get(id, query) as Promise<User>
+  }
+
   async patch (id: Id, data: User, query: Query = {}): Promise<User> {
     await pool.query('UPDATE Users SET ? WHERE id = ?', [data, id])
 

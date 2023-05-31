@@ -23,6 +23,32 @@ export class UserController {
     res.json(data)
   }
 
+  async put (req: Request, res: Response): Promise<void> {
+    try {
+      const { first_name, last_name, email, gender, age } = req.body
+
+      const { userId } = req.params
+
+      const user = await this.repository.get(userId)
+
+      if (!user) throw new UserNotFound('The user you want to update does not exist.')
+
+      const payload = {
+        first_name,
+        last_name,
+        email,
+        gender,
+        age
+      } as User
+
+      const data = await this.repository.patch(userId, payload)
+
+      res.json(data)
+    } catch (error: any) {
+      res.status(error?.statusCode || 500).json(error)
+    }
+  }
+
   async patch (req: Request, res: Response): Promise<void> {
     try {
       const { first_name, last_name, email, gender, age } = req.body
