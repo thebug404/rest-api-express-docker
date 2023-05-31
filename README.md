@@ -68,7 +68,10 @@ docker compose up -d
 Now, you have available the following http methods to interact with the Users API.
 
 - `GET` http://localhost:8080/api/users
+- `GET` http://localhost:8080/api/users/:userId
 - `POST` http://localhost:8080/api/users
+- `PATCH` http://localhost:8080/api/users/:userId
+- `DELETE` http://localhost:8080/api/users/:userId
 
 > Enter the file `requests\users.http`, where all the available requests are preconfigured.
 
