@@ -2,7 +2,7 @@
 GET http://localhost:8080/api/users HTTP/1.1
 
 ### Get one user
-### GET http://localhost:8080/api/users/469233be-f72f-4f21-aa80-d2fa7d97f0aa HTTP/1.1
+GET http://localhost:8080/api/users/<userId> HTTP/1.1
 
 ### Create a user
 POST http://localhost:8080/api/users HTTP/1.1

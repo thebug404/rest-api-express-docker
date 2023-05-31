@@ -11,10 +11,24 @@ export class UserController {
   // eslint-disable-next-line no-useless-constructor
   constructor (private repository: ServiceMethods<User>) {}
 
-  async get (req: Request, res: Response): Promise<void> {
+  async list (req: Request, res: Response): Promise<void> {
     const items = await this.repository.list()
 
     res.json({ items })
+  }
+
+  async get (req: Request, res: Response): Promise<void> {
+    try {
+      const { userId } = req.params
+
+      const user = await this.repository.get(userId)
+
+      if (!user) throw new UserNotFound('The user does not exist.')
+
+      res.json(user)
+    } catch (error: any) {
+      res.status(error?.statusCode || 500).json(error)
+    }
   }
 
   async post (req: Request, res: Response): Promise<void> {
