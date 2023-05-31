@@ -13,5 +13,13 @@ content-type: application/json
   "age": 59
 }
 
+### Patch user.
+PATCH http://localhost:8080/api/users/<userId>
+Content-Type: application/json
+
+{
+  "first_name": "Ivan Guevara"
+}
+
 ### Remove a user
 DELETE  http://localhost:8080/api/users/<userId> HTTP/1.1

@@ -35,17 +35,21 @@ export class UserRepository implements ServiceMethods<User> {
       age
     } = data
 
-    const id = uuid()
+    const userId = uuid()
 
     const querySQL = 'INSERT INTO Users (id, first_name, last_name, email, gender, age) VALUES (?, ?, ?, ?, ?, ?)'
 
-    const values = [id, first_name, last_name, email, gender, age]
+    const values = [userId, first_name, last_name, email, gender, age]
 
     await pool.query(querySQL, values)
 
-    const [results] = await pool.query('SELECT * FROM Users WHERE id = ?', [id])
+    return this.get(userId) as Promise<User>
+  }
 
-    return (results as User[]).at(0) as User
+  async patch (id: Id, data: User, query: Query = {}): Promise<User> {
+    await pool.query('UPDATE Users SET ? WHERE id = ?', [data, id])
+
+    return this.get(id, query) as Promise<User>
   }
 
   async remove (id: Id, query: Query = {}): Promise<User> {
