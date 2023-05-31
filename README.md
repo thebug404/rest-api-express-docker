@@ -70,6 +70,7 @@ Now, you have available the following http methods to interact with the Users AP
 - `GET` http://localhost:8080/api/users
 - `GET` http://localhost:8080/api/users/:userId
 - `POST` http://localhost:8080/api/users
+- `PUT` http://localhost:8080/api/users/:userId
 - `PATCH` http://localhost:8080/api/users/:userId
 - `DELETE` http://localhost:8080/api/users/:userId
 
