@@ -5,7 +5,7 @@ import { ServiceMethods } from '../declarations'
 
 import { UserNotFound } from '../errors'
 
-import { User } from './user.repository'
+import { User } from './user.model'
 
 export class UserController {
   // eslint-disable-next-line no-useless-constructor
