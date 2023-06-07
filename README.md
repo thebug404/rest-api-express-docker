@@ -45,6 +45,14 @@ Enter project.
 cd rest-api-express-docker
 ```
 
+We initialize all containers using Docker Compose.
+
+> **Note**: If you want to quickly test the project I can run the command `docker compose up -d`. But if you are new to Docker, you can skip this part. Since it will be seen later.
+
+```bash
+docker compose up -d
+```
+
 Install dependencies.
 
 ```bash
@@ -57,12 +65,24 @@ Open **VSCode**.
 code .
 ```
 
-We initialize all containers using Docker Compose.
+Create an `.env` file and copy the following content.
 
-> **Note**: If you want to quickly test the project I can run the command `docker compose up -d`. But if you are new to Docker, you can skip this part. Since it will be seen later.
+```.env
+PORT=8080
+
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_USER=root
+MYSQL_PASSWORD=mysqlpw
+MYSQL_DATABASE=example_db
+```
+
+Now, initialize your database server MySQL. To initialize a MySQL server in Docker, skip to the next section [MySQL Image 🐬](#mysql-image-)
+
+As the last step we run a development server.
 
 ```bash
-docker compose up -d
+npm run start:ts
 ```
 
 Now, you have available the following http methods to interact with the Users API.
