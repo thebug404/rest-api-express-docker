@@ -1,10 +1,10 @@
 import { Router } from 'express'
 
-import { UserRepository } from './user.repository'
-
-import { validate } from '../middlewares/validation.middleware'
+import { validate } from '@/middlewares/validation.middleware'
 
 import { validateUserInput } from './user.validations'
+
+import { UserRepository } from './user.repository'
 
 import { UserController } from './user.controller'
 

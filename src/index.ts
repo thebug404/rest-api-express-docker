@@ -1,13 +1,13 @@
 import express from 'express'
 import morgan from 'morgan'
 
-import { environments } from './environments'
+import { environments } from '@/environments'
 
-import { dataSource } from './config/database'
+import { dataSource } from '@/config/database'
 
-import { notFound } from './middlewares/notfound.middleware'
+import { notFound } from '@/middlewares/notfound.middleware'
 
-import userRoutes from './users/user.routes'
+import userRoutes from '@/users/user.routes'
 
 const { PORT } = environments
 

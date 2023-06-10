@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import { Id, Query, ServiceMethods } from '../declarations'
+import { Id, Query, ServiceMethods } from '@/declarations'
 
-import { dataSource } from '../config/database'
+import { dataSource } from '@/config/database'
 
 import { User } from './user.model'
 

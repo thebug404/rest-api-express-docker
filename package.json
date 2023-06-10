@@ -8,7 +8,7 @@
     "build": "tsc",
     "dev": "nodemon",
     "start": "node dist/index.js",
-    "start:ts": "ts-node src/index.ts",
+    "start:ts": "ts-node --require tsconfig-paths/register src/index.ts",
     "test": "jest",
     "eslint": "eslint \"src/**/*.ts\"",
     "eslint:fix": "eslint \"src/**/*.ts\" --fix"
@@ -54,6 +54,7 @@
     "nodemon": "2.0.22",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
+    "tsconfig-paths": "4.2.0",
     "typescript": "5.0.4"
   }
 }

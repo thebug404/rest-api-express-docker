@@ -1,6 +1,6 @@
 import { createPool } from 'mysql2/promise'
 
-import { environments } from '../environments'
+import { environments } from '@/environments'
 
 export const pool = createPool({
   host: environments.MYSQL_HOST,

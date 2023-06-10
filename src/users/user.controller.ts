@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 import { Request, Response } from 'express'
 
-import { ServiceMethods } from '../declarations'
+import { ServiceMethods } from '@/declarations'
 
-import { UserNotFound } from '../errors'
+import { UserNotFound } from '@/errors'
 
 import { User } from './user.model'
 

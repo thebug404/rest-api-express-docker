@@ -1,8 +1,8 @@
 import { DataSource } from 'typeorm'
 
-import { environments } from '../environments'
+import { environments } from '@/environments'
 
-import { User } from '../users/user.model'
+import { User } from '@/users/user.model'
 
 const {
   MYSQL_HOST,
